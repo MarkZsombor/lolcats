@@ -1,4 +1,4 @@
-#Lolcat Factory
+# LOLcat Factory
 
 A python command line program that will access an online api which generates cat images, will download the images, save them, then open the folder to display images.
 
