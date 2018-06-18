@@ -1,4 +1,6 @@
 import os
+import platform
+import subprocess
 
 import cat_service
 
@@ -7,7 +9,7 @@ def main():
     print_header()
     folder = get_or_create_output_folder()
     download_cats(folder)
-    # display cats
+    display_cats(folder)
 
 
 def print_header():
@@ -38,6 +40,17 @@ def download_cats(folder):
         cat_service.get_cat(folder, name)
 
     print('Downloading complete')
+
+
+def display_cats(folder):
+    # open folder, open in an image browser
+    print('Displaying cat images')
+    if platform.system() == 'Darwin':
+        subprocess.call(['open', folder])
+    if platform.system() == 'Linux':
+        subprocess.call(['xdg-open', folder])
+    if platform.system() == 'Windows':
+        subprocess.call(['start', folder])
 
 
 if __name__  == '__main__':
