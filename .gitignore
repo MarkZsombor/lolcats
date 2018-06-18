@@ -1,2 +1,4 @@
 /.idea/
 /venv/
+/cat_pictures/
+__pycache__

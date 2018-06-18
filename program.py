@@ -1,9 +1,12 @@
 import os
 
+import cat_service
+
+
 def main():
     print_header()
     folder = get_or_create_output_folder()
-    # download cat
+    download_cats(folder)
     # display cats
 
 
@@ -23,6 +26,19 @@ def get_or_create_output_folder():
         os.mkdir(full_path)
 
     return full_path
+
+
+def download_cats(folder):
+    print('Connecting to server')
+    cat_count = 8
+    # basic loop
+    for i in range(1, cat_count+1):
+        name = 'lolcat {}'.format(i)
+        print('Downloading {}'.format(name))
+        cat_service.get_cat(folder, name)
+
+    print('Downloading complete')
+
 
 if __name__  == '__main__':
     main()
